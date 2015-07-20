@@ -6,7 +6,12 @@ class User < ActiveRecord::Base
   #devise :database_authenticatable, :registerable,
    #      :recoverable, :rememberable, :trackable, :validatable
 
-  before_create :set_auth_token
+  #before_create :set_auth_token
+
+ acts_as_token_authenticatable
+  devise :database_authenticatable, :registerable
+
+
 
   private
   def set_auth_token
